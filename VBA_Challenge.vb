@@ -64,10 +64,20 @@ Cells(Results_Table_Row, 11).Interior.ColorIndex = 4
 End If
                      
 ' Calculating Percent Change for each stock
-            
-Percent_Change = (Price_Diff / Open_Price)
+
+If Open_Price = 0 Then
+
+Percent_Change = 0
 Cells(Results_Table_Row, 12).Value = Percent_Change
 Cells(Results_Table_Row, 12).NumberFormat = "00.00%"
+
+Else
+
+Percent_Change = (Close_Price / Open_Price)
+Cells(Results_Table_Row, 12).Value = Percent_Change
+Cells(Results_Table_Row, 12).NumberFormat = "00.00%"
+
+End If
                 
 ' Setting the stock_volume for each stock
                 
